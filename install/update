@@ -19,16 +19,20 @@ sudo cp $DIR/install/bin/chat-client /home/.chat-client/usr/bin/
 
 sudo sed -i '/# enable bash completion in interactive shells/{N;N;N;N;N;N;N;s/\n#/\n/g}' /etc/bash.bashrc
 
-sudo rm /usr/share/bash-completion/completions/chat-client
-sudo cp $DIR/install/bin/completion/chat-client /usr/share/bash-completion/completions/
+# sudo rm /usr/share/bash-completion/completions/chat-client
+# sudo cp $DIR/install/bin/completion/chat-client /usr/share/bash-completion/completions/
 
 sudo fakeroot dpkg-deb -b /home/.chat-client
 sudo dpkg -i /home/.chat-client.deb
 sudo rm /home/.chat-client.deb
 
-sudo mkdir /home/.chat-client/usr/bin/help
+sudo mkdir /home/.chat-client/usr/bin/js/
+sudo mkdir /home/.chat-client/usr/bin/config/
+sudo mkdir /home/.chat-client/usr/bin/help/
+
 sudo cp $DIR/install/js/client.js /home/.chat-client/usr/bin/
 sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
+sudo cp $DIR/install/config/config.json /home/.chat-client/usr/bin/config/
 sudo cp $DIR/install/help/help.txt /home/.chat-client/usr/bin/help/
 sudo cp $DIR/install/update /home/.chat-client/usr/bin/
 

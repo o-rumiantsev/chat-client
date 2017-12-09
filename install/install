@@ -23,17 +23,17 @@ sudo dpkg -i /home/.chat-client.deb
 sudo rm /home/.chat-client.deb
 
 sudo mkdir /home/.chat-client/usr/bin/js/
+sudo mkdir /home/.chat-client/usr/bin/config/
 sudo mkdir /home/.chat-client/usr/bin/help/
 
 sudo cp $DIR/install/update /home/.chat-client/usr/bin/
 sudo cp $DIR/install/js/client.js /home/.chat-client/usr/bin/
 sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
 sudo cp $DIR/install/help/help.txt /home/.chat-client/usr/bin/help/
-sudo cp -r $DIR/install/config/ /home/.chat-client/usr/bin/
+sudo cp $DIR/install/config/config.json /home/.chat-client/usr/bin/config/
+
 sudo rm -r /home/.client
 
 echo
 echo "Installed successfully"
 echo "To start chat-client: chat-client <host> <port>"
-# echo "To uninstall: tcp-server remove"
-# echo "Type 'tcp-server --help' for aditional info"

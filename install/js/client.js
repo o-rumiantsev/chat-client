@@ -5,7 +5,7 @@ const net = require('net');
 const fs = require('fs');
 const readline = require('readline');
 const cli = require(__dirname + '/cli.js');
-const configDir = '/home/.chat-client/sr/bin/config/config.json';
+const configDir = '/home/.chat-client/usr/bin/config/config.json';
 
 cli();
 
