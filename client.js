@@ -66,7 +66,7 @@ socket.on('data', (msg) => {
 
 function sendMsg(line) {
   let msg = '';
-  if (PLATFORM.includes(/^Win/)) msg += `${username}: ` + line;
+  if (PLATFORM.startsWith('win')) msg += `${username}: ` + line;
   else msg = `📨  ${username}: ` + line;
   socket.write(msg);
 };
