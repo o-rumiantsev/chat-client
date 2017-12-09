@@ -64,16 +64,19 @@ socket.on('data', (msg) => {
   rl.prompt();
 });
 
+function sendEndMsg() {
+  socket.end(`User ${username} disconnected`);
+  rl.prompt = () => '';
+}
+
 function sendMsg(line) {
   const msg = `${username}: ` + line;
   socket.write(msg);
 };
 
-
 rl.on('line', (line) => {
   if (line === 'exit') {
-    socket.end(`User ${username} disconnected`);
-    rl.prompt = () => '';
+    sendEndMsg();
   } else if (line !== '') {
     sendMsg(line);
   }
