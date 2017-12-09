@@ -4,7 +4,7 @@ const fs = require('fs');
 const cp = require('child_process');
 const args = process.argv.splice(2);
 
-const configDir = '/home/.chat-client/sr/bin/config/config.json';
+const configDir = '/home/.chat-client/usr/bin/config/config.json';
 const config = fs.readFileSync(configDir, 'utf8');
 const uinfo = JSON.parse(config);
 
