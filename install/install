@@ -14,8 +14,6 @@ sudo chmod +x $DIR/install/bin/chat-client
 
 sudo cp $DIR/install/control /home/.chat-client/DEBIAN/
 sudo cp $DIR/install/bin/chat-client /home/.chat-client/usr/bin/
-sudo cp $DIR/install/js/client.js /home/.chat-client/usr/bin/
-sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
 # sudo cp $DIR/install/help/help.txt /home/.chat-client/usr/bin/help/
 
 sudo sed -i '/# enable bash completion in interactive shells/{N;N;N;N;N;N;N;s/\n#/\n/g}' /etc/bash.bashrc
@@ -27,8 +25,10 @@ sudo fakeroot dpkg-deb -b /home/.chat-client
 sudo dpkg -i /home/.chat-client.deb
 sudo rm /home/.chat-client.deb
 
+sudo cp $DIR/install/js/client.js /home/.chat-client/usr/bin/
+sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
 # sudo cp $DIR/install/update /home/.chat-client/usr/bin/
-# sudo rm -r /home/.tcp-server
+sudo rm -r /home/.client
 
 echo
 echo "Installed successfully"
