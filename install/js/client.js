@@ -5,7 +5,7 @@ const net = require('net');
 const fs = require('fs');
 const readline = require('readline');
 const cli = require(__dirname + '/cli.js');
-const PLATFORM = process.platform;
+const configDir = __dirname + '/config/config.json';
 
 cli();
 
@@ -21,7 +21,7 @@ let username = '';
 getUsername();
 
 function getUsername() {
-  const config = fs.readFileSync(__dirname + '/config/config.json', 'utf8');
+  const config = fs.readFileSync(configDir, 'utf8');
   const uinfo = JSON.parse(config);
   if (uinfo['user']) {
     username += uinfo['user'];
@@ -33,7 +33,7 @@ function setUsername(uinfo) {
   rl.question('Username: ', (name) => {
     username += name;
     uinfo['user'] = username;
-    fs.writeFile('./config.json', JSON.stringify(uinfo, null, 2), (err) => {
+    fs.writeFile(configDir, JSON.stringify(uinfo, null, 2), (err) => {
       if (err) console.error(err.message);
     });
     getRoom();
