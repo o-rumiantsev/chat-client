@@ -13,7 +13,7 @@ const socket = new net.Socket();
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  prompt: 'Enter message> '
+  prompt: ''
 });
 
 let username = '';
@@ -47,7 +47,7 @@ function getRoom() {
 
 function connect(room) {
   socket.connect(global.options, () => {
-    socket.write(`###Room###${room}|Client ${username} connected`);
+    socket.write(`###Room###${room}|User ${username} connected`);
   });
 };
 
@@ -65,7 +65,7 @@ socket.on('data', (msg) => {
 
 rl.on('line', (line) => {
   if (line === 'exit') {
-    socket.end(`Client ${username} disconnected`);
+    socket.end(`User ${username} disconnected`);
     rl.prompt = () => '';
   } else if (line !== '') {
     const msg = `📨  ${username}: ` + line;
