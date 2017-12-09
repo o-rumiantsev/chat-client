@@ -21,7 +21,7 @@ let username = '';
 getUsername();
 
 function getUsername() {
-  const config = fs.readFileSync(__dirname + '/config.json', 'utf8');
+  const config = fs.readFileSync(__dirname + '/config/config.json', 'utf8');
   const uinfo = JSON.parse(config);
   if (uinfo['user']) {
     username += uinfo['user'];

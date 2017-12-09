@@ -8,7 +8,6 @@ sudo mkdir /home/.chat-client/usr/
 sudo mkdir /home/.chat-client/DEBIAN/
 sudo mkdir /home/.chat-client/usr/bin/
 sudo mkdir /home/.chat-client/usr/bin/help
-sudo mkdir /home/.chat-client/usr/bin/config
 
 sudo chmod +x $DIR/install/bin/chat-client
 
@@ -27,6 +26,7 @@ sudo rm /home/.chat-client.deb
 
 sudo cp $DIR/install/js/client.js /home/.chat-client/usr/bin/
 sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
+sido cp -r $DIR/install/config/ /home/.chat-client/usr/bin/
 # sudo cp $DIR/install/update /home/.chat-client/usr/bin/
 sudo rm -r /home/.client
 
