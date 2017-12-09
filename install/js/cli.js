@@ -66,7 +66,6 @@ function cli() {
       break;
     }
     default: {
-      global.start = true;
       if (!args[0] && !args[1]) {
         console.log(
           "Usage: chat-client <host> <port>\n" +
@@ -74,6 +73,7 @@ function cli() {
         );
         return;
       }
+      global.start = true;
       global.options = { host: args[0], port: args[1] };
     }
   }

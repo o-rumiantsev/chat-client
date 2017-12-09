@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DIR="/home/.client"
+sudo cp /home/.chat-client/usr/bin/config/config.json /home/
 
 sudo dpkg -r chat-client
 sudo rm -r /home/.chat-client/
@@ -32,8 +33,9 @@ sudo mkdir /home/.chat-client/usr/bin/help/
 
 sudo cp $DIR/install/js/client.js /home/.chat-client/usr/bin/
 sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
-sudo cp $DIR/install/config/config.json /home/.chat-client/usr/bin/config/
 sudo cp $DIR/install/help/help.txt /home/.chat-client/usr/bin/help/
 sudo cp $DIR/install/update /home/.chat-client/usr/bin/
+
+sudo cp /home/config.json /home/.chat-client/usr/bin/config/
 
 sudo rm -r $DIR
