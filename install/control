@@ -1,6 +1,6 @@
 Source: chat-client
 Package: chat-client
-Version: 1.0.0
+Version: 1.0.1
 Section: base
 Priority: optional
 Architecture: amd64

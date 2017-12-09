@@ -19,8 +19,8 @@ sudo cp $DIR/install/bin/chat-client /home/.chat-client/usr/bin/
 
 sudo sed -i '/# enable bash completion in interactive shells/{N;N;N;N;N;N;N;s/\n#/\n/g}' /etc/bash.bashrc
 
-# sudo rm /usr/share/bash-completion/completions/chat-client
-# sudo cp $DIR/install/bin/completion/chat-client /usr/share/bash-completion/completions/
+sudo rm /usr/share/bash-completion/completions/chat-client
+sudo cp $DIR/install/bin/completion/chat-client /usr/share/bash-completion/completions/
 
 sudo fakeroot dpkg-deb -b /home/.chat-client
 sudo dpkg -i /home/.chat-client.deb

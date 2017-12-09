@@ -1,0 +1,18 @@
+#chat-client complation                                         -*- shell-script -*-
+
+_chat-client() {
+
+  local cur prev words cword
+  _init_completion || return
+
+  if [ -n $cur ]
+  then
+    local opts=("change-username" "remove" "update" "--help")
+
+    if [[ cword -lt 2 ]]
+    then
+      COMPREPLY=( `compgen -W "${opts[*]}" -- $cur` )
+    fi
+  fi
+} &&
+complete -F _chat-client chat-client
