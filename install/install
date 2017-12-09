@@ -1,0 +1,39 @@
+#!/bin/bash
+
+DIR="/home/.client"
+sudo git clone https://github.com/o-rumiantsev/chat-client "$DIR"
+#
+# sudo mkdir /home/.chat-client/
+# sudo mkdir /home/.chat-client/usr/
+# sudo mkdir /home/.chat-client/DEBIAN/
+# sudo mkdir /home/.chat-client/usr/bin/
+# sudo mkdir /home/.chat-client/usr/bin/help
+# sudo mkdir /home/.chat-client/usr/bin/log
+#
+# sudo chmod +x $DIR/install/res/bin/tcp-server
+#
+# sudo cp $DIR/install/control /home/.chat-client/DEBIAN/
+# sudo cp $DIR/install/bin/tcp-server /home/.chat-client/usr/bin/
+# sudo cp $DIR/install/js/net-server.js /home/.chat-client/usr/bin/
+# sudo cp $DIR/install/js/cli.js /home/.chat-client/usr/bin/
+# sudo cp $DIR/install/js/log.js /home/.chat-client/usr/bin/
+# sudo cp $DIR/install/help/help.txt /home/.chat-client/usr/bin/help/
+# sudo cp -r $DIR/install/res/log/ /home/.chat-client/usr/bin/
+#
+# sudo sed -i '/# enable bash completion in interactive shells/{N;N;N;N;N;N;N;s/\n#/\n/g}' /etc/bash.bashrc
+#
+# sudo rm /usr/share/bash-completion/completions/tcp-server
+# sudo cp $DIR/install/res/bin/completion/tcp-server /usr/share/bash-completion/completions/
+#
+# sudo fakeroot dpkg-deb -b /home/.chat-client
+# sudo dpkg -i /home/.chat-client.deb
+# sudo rm /home/.chat-client.deb
+#
+# sudo cp $DIR/install/update /home/.chat-client/usr/bin/
+# sudo rm -r /home/.tcp-server
+#
+# echo
+# echo "Installed successfully"
+# echo "To start tcp server: tcp-server start"
+# echo "To uninstall: tcp-server remove"
+# echo "Type 'tcp-server --help' for aditional info"
