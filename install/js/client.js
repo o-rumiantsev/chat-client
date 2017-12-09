@@ -5,9 +5,11 @@ const net = require('net');
 const fs = require('fs');
 const readline = require('readline');
 const cli = require(__dirname + '/cli.js');
-const configDir = __dirname + '/config/config.json';
+const configDir = '/home/.chat-client/sr/bin/config/config.json';
 
 cli();
+
+if (!global.start) return;
 
 const socket = new net.Socket();
 
