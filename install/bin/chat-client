@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo node /home/.chat-client/usr/bin/client.js $@
