@@ -5,6 +5,7 @@ const net = require('net');
 const fs = require('fs');
 const readline = require('readline');
 const cli = require(__dirname + '/cli.js');
+const PLATFORM = process.platform;
 
 cli();
 
@@ -63,13 +64,20 @@ socket.on('data', (msg) => {
   rl.prompt();
 });
 
+function sendMsg(line) {
+  let msg = '';
+  if (PLATFORM.includes(/^Win/)) msg += `${username}: ` + line;
+  else msg = `📨  ${username}: ` + line;
+  socket.write(msg);
+};
+
+
 rl.on('line', (line) => {
   if (line === 'exit') {
     socket.end(`User ${username} disconnected`);
     rl.prompt = () => '';
   } else if (line !== '') {
-    const msg = `📨  ${username}: ` + line;
-    socket.write(msg);
+    sendMsg(line);
   }
   rl.prompt();
 });
