@@ -4,6 +4,9 @@ const os = require('os');
 const net = require('net');
 const fs = require('fs');
 const readline = require('readline');
+const cli = require(__dirname + '/cli.js');
+
+cli();
 
 const socket = new net.Socket();
 
@@ -21,32 +24,33 @@ function getUsername() {
   const uinfo = JSON.parse(config);
   if (uinfo['user']) {
     username += uinfo['user'];
-    connect();
+    getRoom();
   } else setUsername(uinfo);
-}
+};
 
 function setUsername(uinfo) {
   rl.question('Username: ', (name) => {
     username += name;
     uinfo['user'] = username;
-    fs.writeFile('./config.json', JSON.stringify(uinfo), (err) => {
+    fs.writeFile('./config.json', JSON.stringify(uinfo, null, 2), (err) => {
       if (err) console.error(err.message);
     });
-    connect();
+    getRoom();
   });
-}
+};
 
-
-function connect() {
-  rl.question('Enter host and port: ', (opts) => {
-    opts = opts.split(' ');
-    const options = { port: opts[1], host: opts[0]};
-
-    socket.connect(options, () => {
-      socket.write(`Client ${username} connected`);
-    });
+function getRoom() {
+  rl.question('Room: ', (room) => {
+    connect(room);
   });
-}
+};
+
+function connect(room) {
+  socket.connect(global.options, () => {
+    socket.write(`###Room###${room}|Client ${username} connected`);
+  });
+};
+
 
 socket.on('close', () => {
   console.log('================= Connection closed =================');
