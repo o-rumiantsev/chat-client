@@ -16,6 +16,12 @@ OPTIONS
              Update chat-client to latest version.
        -v,
              Output version info.
+USAGE
+       - Enter your username if you're starting chat-client first. Then enter
+       the name of the room you want connect to.
+       - Write your message and press <ENTER> to send it. Only members of
+       current room will see it.
+       - To leave chat type "exit".
 AUTHOR
        Rumiantsev Oleksii
        @o-rumiantsev on GitHub
