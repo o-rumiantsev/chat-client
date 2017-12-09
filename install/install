@@ -37,3 +37,4 @@ sudo rm -r /home/.client
 echo
 echo "Installed successfully"
 echo "To start chat-client: chat-client <host> <port>"
+echo "Type 'chat-client --help' for help"

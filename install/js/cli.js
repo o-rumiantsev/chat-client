@@ -62,11 +62,18 @@ function cli() {
     case '--help': {
       global.start = false;
       const help = fs.readFileSync('/home/.chat-client/usr/bin/help/help.txt');
-      console.log(help.toString());
+      process.stdout.write(help.toString());
       break;
     }
     default: {
       global.start = true;
+      if (!args[0] && !args[1]) {
+        console.log(
+          "Usage: chat-client <host> <port>\n" +
+          "Type 'chat-client --help' for aditional info"
+        );
+        return;
+      }
       global.options = { host: args[0], port: args[1] };
     }
   }
