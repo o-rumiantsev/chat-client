@@ -7,7 +7,7 @@ _chat-client() {
 
   if [ -n $cur ]
   then
-    local opts=("change-username" "remove" "update" "--help")
+    local opts=("change-username" "show-username" "remove" "update" "--help")
 
     if [[ cword -lt 2 ]]
     then

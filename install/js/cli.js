@@ -24,7 +24,12 @@ function showVersion(packageName) {
     process.stderr.write(stderr);
     process.stdout.write('v' + stdout);
   });
-}
+};
+
+function showUsername() {
+  const username = uinfo['user'];
+  console.log(username);
+};
 
 global.start = false;
 
@@ -41,6 +46,10 @@ function cli() {
           if (err) console.error(err.message);
         });
       }
+      break;
+    }
+    case 'show-username': {
+      showUsername();
       break;
     }
     case 'remove': {

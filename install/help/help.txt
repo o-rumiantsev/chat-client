@@ -10,6 +10,8 @@ OPTIONS
              Output a usage message and exit.
        change-username,
              Change username in config.json
+       show-username,
+             Output your current username.
        remove,
              Remove chat-client package from your computer.
        update,
