@@ -3,8 +3,8 @@ NAME
 SYNOPSIS
        chat-client [<host> <port>] or [ OPTION ]
 DESCRIPTION
-       simple  utility to start your own server with simple command line chat
-       which could be coonected to through telnet client.
+       simple  package to connect to the tcp server 
+       and start chat.
 OPTIONS
        --help,
              Output a usage message and exit.
