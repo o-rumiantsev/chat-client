@@ -18,18 +18,18 @@ const uinfo = JSON.parse(config);
 */
 
 function showVersion(packageName) {
-  const cmd = `dpkg -l ${packageName} | tail -1 | tr -s ' ' | cut -d' ' -f3`
+  const cmd = `dpkg -l ${packageName} | tail -1 | tr -s ' ' | cut -d' ' -f3`;
   cp.exec(cmd, (err, stdout, stderr) => {
     if (err) throw err;
     process.stderr.write(stderr);
     process.stdout.write('v' + stdout);
   });
-};
+}
 
 function showUsername() {
   const username = uinfo['user'];
   console.log(username);
-};
+}
 
 global.start = false;
 
@@ -77,8 +77,8 @@ function cli() {
     default: {
       if (!args[0] && !args[1]) {
         console.log(
-          "Usage: chat-client <host> <port>\n" +
-          "Type 'chat-client --help' for aditional info"
+          'Usage: chat-client <host> <port>\n' +
+          'Type "chat-client --help" for aditional info'
         );
         return;
       }
@@ -86,6 +86,6 @@ function cli() {
       global.options = { host: args[0], port: args[1] };
     }
   }
-};
+}
 
 module.exports = cli;

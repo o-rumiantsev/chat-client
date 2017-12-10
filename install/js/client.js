@@ -1,6 +1,5 @@
 'use strict';
 
-const os = require('os');
 const net = require('net');
 const fs = require('fs');
 const readline = require('readline');
@@ -29,7 +28,7 @@ function getUsername() {
     username += uinfo['user'];
     getRoom();
   } else setUsername(uinfo);
-};
+}
 
 function setUsername(uinfo) {
   rl.question('Username: ', (name) => {
@@ -40,25 +39,25 @@ function setUsername(uinfo) {
     });
     getRoom();
   });
-};
+}
 
 function getRoom() {
   rl.question('Room: ', (room) => {
     connect(room);
   });
-};
+}
 
 function connect(room) {
   socket.connect(global.options, () => {
     socket.write(`###Room###${room}|User ${username} connected`);
   });
-};
+}
 
 
 socket.on('close', () => {
   console.log('================= Connection closed =================');
   rl.close();
-})
+});
 
 socket.setEncoding('utf8');
 socket.on('data', (msg) => {
@@ -74,7 +73,7 @@ function sendEndMsg() {
 function sendMsg(line) {
   const msg = `${username}: ` + line;
   socket.write(msg);
-};
+}
 
 rl.on('line', (line) => {
   if (line === 'exit') {
